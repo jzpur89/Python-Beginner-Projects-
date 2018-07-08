@@ -1,0 +1,34 @@
+inventory = {847502: ['APPLES 1LB', 1.99, 50], 847283: ['OLIVE OIL', 10.99, 100], 839529: ['TOMATOS 1LB', 1.29, 25], 483946: ['MILK 1/2G', 3.45, 35], 493402: ['FLOUR 5LB', 2.99, 40], 485034: ['BELL PEPPERS 1LB', 1.35, 28], 828391: ['WHITE TUNA', 1.69, 100], 449023: ['CHEESE 1/2LB', 4.99, 15]}
+
+inventory2 = {847502: ['APPLES 1LB', 1.99, 50], 847283: ['OLIVE OIL', 10.99, 100], 839529: ['TOMATOS 1LB', 1.29, 25], 483946: ['MILK 1/2G', 3.45, 35], 493402: ['FLOUR 5LB', 2.99, 40], 485034: ['BELL PEPPERS 1LB', 1.35, 28], 828391: ['WHITE TUNA', 1.69, 100], 449023: ['CHEESE 1/2LB', 4.99, 15]}
+
+
+
+upc = int(input("Enter UPC Number"))
+
+
+
+def existing_item():
+    inventory[upc][0] = input("Enter item description:")
+    inventory[upc][1] = float(input("Enter unit price:"))
+    inventory[upc][2] = int(input("Enter item quantity:"))
+    print("Existing item, updating:", inventory2[upc])
+    print('UPC    |   Description  | Unit Price  | Quantity' )
+    print('-------------------------------------------------')
+    print(str(upc) + ' | ' +  inventory[upc][0] +'          | ' +  str(inventory[upc][1]) + '       | ' +  str(inventory[upc][2]))
+
+def new_item():
+    newitem_upc = upc
+    newitem_description = (input("Enter item description:"))
+    newitem_price = float(input("Enter unit price:"))
+    newitem_quantity = int(input("Enter item quantity:"))
+    inventory.update({449503: [newitem_description, newitem_price, newitem_quantity]})
+    print('New Item, creating', newitem_description)
+    print('UPC    |   Description  | Unit Price  | Quantity' )
+    print('-------------------------------------------------')
+    print(str(newitem_upc)  + ' | ' +  newitem_description + '         | ' +  str(newitem_price) + '        | ' +str(newitem_quantity))
+
+if upc in inventory.keys():
+    existing_item()
+if upc not in inventory.keys():
+    new_item()
