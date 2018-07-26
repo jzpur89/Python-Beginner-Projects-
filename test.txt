@@ -10,3 +10,5 @@ def square(length, angle):
 for i in range(50):
     square(100,90)
     my_turtle.right(11)
+
+print(hello)
